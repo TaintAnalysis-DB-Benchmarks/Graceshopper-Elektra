@@ -3,9 +3,14 @@ const {Plant, Cart, Item} = require('../db/models')
 const isCurrentUser = require('../utils/isCurrentUser')
 module.exports = router
 
+// Performance Stuff.
+const {performance} = require('perf_hooks')
+
 // PUT api/checkout/user/:id
 router.put('/user/:id', isCurrentUser, async (req, res, next) => {
   try {
+    console.log('==================== checkout // start ====================')
+    const fnStart = performance.now()
     const activeCart = await Cart.findOne({
       where: {
         userId: req.params.id,
@@ -39,6 +44,9 @@ router.put('/user/:id', isCurrentUser, async (req, res, next) => {
 
     await Cart.create({userId: req.params.id})
 
+    const fnEnd = performance.now()
+    console.log('====================  checkout // end  ====================')
+    console.log(fnEnd - fnStart)
     res.json(updatedCart)
   } catch (error) {
     console.log('there was an error in PUT api/checkout/user/:id')
