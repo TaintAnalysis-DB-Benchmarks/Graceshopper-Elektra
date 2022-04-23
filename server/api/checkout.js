@@ -8,6 +8,8 @@ const isCurrentUser = require('../utils/isCurrentUser')
 
 module.exports = router // PUT api/checkout/user/:id
 
+const {performance} = require('perf_hooks')
+
 router.put('/user/:id', isCurrentUser, async (req, res, next) => {
   try {
     console.log('==================== checkout // start ====================')
