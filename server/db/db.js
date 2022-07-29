@@ -1,6 +1,9 @@
 const Sequelize = require('sequelize')
 const pkg = require('../../package.json')
 
+// Adding dotenv to actually use the environment variables...
+require('dotenv').config();
+
 const databaseName = pkg.name + (process.env.NODE_ENV === 'test' ? '-test' : '')
 
 let config
