@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {addPlant} from '../store/allplantsReducer'
+import {addPlant} from '../store/allPlantsReducer'
 import {getTypes} from '../store/typesReducer'
 
 // COMPONENT

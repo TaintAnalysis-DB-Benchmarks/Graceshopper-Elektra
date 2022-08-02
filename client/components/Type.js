@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {getSingleType} from '../store/typesReducer'
-import {fetchPlantsAll} from '../store/allplantsReducer'
+import {fetchPlantsAll} from '../store/allPlantsReducer'
 import {Link} from 'react-router-dom'
 
 class Type extends Component {
