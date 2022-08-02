@@ -10,7 +10,7 @@ let config
 
 if (process.env.DATABASE_URL) {
   config = {
-    logging: false,
+    logging: console.log,
     ssl: true,
     dialectOptions: {
       ssl: {
